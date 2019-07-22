@@ -26,12 +26,7 @@ namespace HW_2
             agility = 29;
             intelligence = 19;
             power = strikePower();
-            for (int i = 0; i < item.Count; i++)
-            {
-                
-                items.Add(item[i]);
-                
-            }
+            items = (ArrayList)item.Clone();
         }
 
         public Phantom_Lancer(ArrayList item , float power_decrease)
@@ -42,11 +37,7 @@ namespace HW_2
             agility = 29;
             intelligence = 19;
             power = (int)(power_decrease * strikePower());
-
-            for (int i = 0; i < item.Count; i++)
-            {           
-                items.Add(item[i]);         
-            }
+            items = (ArrayList)item.Clone();
         }
 
         public object Clone()

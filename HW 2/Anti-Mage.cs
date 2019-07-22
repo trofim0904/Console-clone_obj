@@ -24,10 +24,7 @@ namespace HW_2
             agility = 24;
             intelligence = 12;
             power = (int) (power_decrease * strikePower());
-            for (int i = 0; i < item.Count; i++)
-            {
-                items.Add(item[i]);
-            }
+            items = (ArrayList)item.Clone();
         }
 
         public object Clone()
