@@ -18,8 +18,8 @@ namespace HW_2
             for(int i = 0; i < item.Length; i++)
             {
                 Add(item[i]);
-                length++;
-                currentIndex++;
+                //length++;
+                //currentIndex++;
             }
         }
 
@@ -66,8 +66,12 @@ namespace HW_2
         }
         public T[] create_Array()
         {
-            T[] clone_arr = new T[length];
-            Array.Copy(arr, clone_arr, length);
+           T[] clone_arr = new T[length];
+          
+            for (int i = 0; i < length; i++)
+            {
+                clone_arr[i] = (T)arr[i].Clone();
+            }
             return clone_arr;
         }
 

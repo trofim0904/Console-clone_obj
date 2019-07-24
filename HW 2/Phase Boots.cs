@@ -4,14 +4,15 @@ using System.Text;
 
 namespace HW_2
 {
-    class Phase_Boots:Item
+    class Phase_Boots:Item,ICloneable
     {
         public Phase_Boots()
-        {
+        { 
             name = "Phase Boots";
             strength = 6;
             agility = 12;
             intelligence = 0;
         }
+
     }
 }
