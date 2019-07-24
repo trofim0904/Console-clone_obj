@@ -9,29 +9,29 @@ namespace HW_2
     {
         public Anti_Mage()
         {
-            items = new ArrayList();
+            items = new ItemList<Item>();
             name = "Anti-Mage";
             strength = 23;
             agility = 24;
             intelligence = 12;
             power = strikePower();
         }
-        public Anti_Mage(float power_decrease,ArrayList item)
+        public Anti_Mage(float power_decrease,ItemList<Item> item)
         {
-            items = new ArrayList();
+            items = new ItemList<Item>();
             name = "Anti-Mage";
             strength = 23;
             agility = 24;
             intelligence = 12;
             power = (int) (power_decrease * strikePower());
-            items = (ArrayList)item.Clone();
+            
+            items = new ItemList<Item>(item.create_Array());
         }
 
         public object Clone()
         {
-            ArrayList list = new ArrayList();
-            list = (ArrayList)items.Clone();
-    
+            ItemList<Item> list = new ItemList<Item>();
+            list = new ItemList<Item>(items.create_Array());         
             return new Anti_Mage(0.33f,list);
         }
 
@@ -46,6 +46,7 @@ namespace HW_2
                 {
                     clones.Add(Clone());
                     clones.Add(Clone());
+                    break;
                 } 
             }
             if (clones.Count == 0)

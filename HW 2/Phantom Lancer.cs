@@ -9,7 +9,7 @@ namespace HW_2
     {
         public Phantom_Lancer()
         {
-            items = new ArrayList();
+            items = new ItemList<Item>();
             name = "Phantom_Lancer";
             strength = 19;
             agility = 29;
@@ -18,42 +18,42 @@ namespace HW_2
 
         }
 
-        public Phantom_Lancer(ArrayList item)
+        public Phantom_Lancer(ItemList<Item> item)
         {
-            items = new ArrayList();
+            items = new ItemList<Item>();
             name = "Phantom_Lancer";
             strength = 19;
             agility = 29;
             intelligence = 19;
             power = strikePower();
-            items = (ArrayList)item.Clone();
+            items = new ItemList<Item>(item.create_Array());
         }
 
-        public Phantom_Lancer(ArrayList item , float power_decrease)
+        public Phantom_Lancer(ItemList<Item> item , float power_decrease)
         {
-            items = new ArrayList();
+            items = new ItemList<Item>();
             name = "Phantom_Lancer";
             strength = 19;
             agility = 29;
             intelligence = 19;
             power = (int)(power_decrease * strikePower());
-            items = (ArrayList)item.Clone();
+            items = new ItemList<Item>(item.create_Array());
         }
 
         public object Clone()
         {
-            ArrayList list = new ArrayList();
-            list = (ArrayList)items.Clone();
-            
+            ItemList<Item> list = new ItemList<Item>();
+            list = new ItemList<Item>(items.create_Array());
+
             return new Phantom_Lancer(list, 0.2f);
         }
 
-        public object CloneWhithoutDecrease()
+        public object CloneWhithoutPower()
         {
-            ArrayList list = new ArrayList();
-            list = (ArrayList)items.Clone();
+            ItemList<Item> list = new ItemList<Item>();
+            list = new ItemList<Item>(items.create_Array());
             
-            return new Phantom_Lancer(list);
+            return new Phantom_Lancer(list,0);
         }
 
         public override ArrayList getUltimate()
@@ -65,7 +65,7 @@ namespace HW_2
             ArrayList clones = new ArrayList
             {
                 Clone(),
-                CloneWhithoutDecrease()
+                CloneWhithoutPower()
             };
             return clones;
         }

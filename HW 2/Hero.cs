@@ -12,7 +12,7 @@ namespace HW_2
         public int agility;
         public int strength;
         public int power;
-        public ArrayList items;
+        public ItemList<Item> items;
         
         public abstract int strikePower();
 
